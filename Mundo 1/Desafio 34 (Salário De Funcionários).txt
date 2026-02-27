@@ -1,0 +1,17 @@
+from time import sleep
+def Salario(Sal1):
+    if Sal1 >= 3000:
+        return f"Seu Salário Com Aumento é De:{Sal1 + (Sal1*10/100)}\n{'='*50}"
+    elif Sal1 < 3000 and Sal1 > 0:
+        return f"Seu Salário Com Aumento é De:{Sal1+(Sal1*15/100)}\n{'='*50}"
+    else: return "Digite Um Número Positivo"
+while True:
+    try:
+            Sal1 = float(input(f"Digite Seu Salário:"))
+    except ValueError:
+               print("Erro Digite Um Número Válido")
+               continue
+    if Sal1 == 191918: break
+    print("Processando...")
+    sleep(2)
+    print(Salario(Sal1))

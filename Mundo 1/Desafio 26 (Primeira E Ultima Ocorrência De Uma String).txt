@@ -1,0 +1,11 @@
+while True:
+    Frase = input("Frase:")
+    if Frase == 'Sair':
+        break
+    print(f"{'='*50}\n"
+          f"A Letra *{(Frase.strip()[0])}* Aparece {Frase.upper().count((Frase.upper().strip()[0]))} Vez Na Frase\n"
+          f"A Segunda Letra *{Frase[0]}* Apareceu Na Posição {Frase.upper().find(''.join(Frase.upper().split())[0],1)+1}\n"
+          f"A Ultima Letra *{(Frase.strip())[0]}* Apareceu Na Posição {Frase.upper().rfind(''.join(Frase.upper().split())[0])+1}\n"
+          f"{'='*50}")
+
+    #Frase.upper().find(''.join(Frase.upper().split())[0],(Frase.upper().count(''.join(Frase.upper().split())[0]))-1)

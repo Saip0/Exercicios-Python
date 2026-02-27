@@ -1,0 +1,9 @@
+while True:
+    Nom = input("Digite Seu Nome Completo:")
+    if Nom == 'Sair':
+        break
+    print(f"{'='*50}\n"
+          f"Muito Prazer Em Te Conhecer!\n"
+          f"Seu Primeiro Nome É {Nom.split()[0]}\n"
+          f"Seu Ultimo Nome É {Nom.split()[-1]}\n"
+          f"{'='*50}")

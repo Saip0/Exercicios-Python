@@ -1,0 +1,21 @@
+from time import sleep
+while True:
+    VeloAtual = int(input(f"{'='*50}\nVelocidade:"))
+    print('='*50)
+    if VeloAtual == 191918: break
+    if VeloAtual >= 80:
+        print("Processando.")
+        sleep(1)
+        print("Processando..")
+        sleep(1)
+        print("Processando...")
+        sleep(1)
+        print(f"{'='*50}\nVocê Será Multado Em {(VeloAtual-80)*7} R$")
+    else:
+        print("Processando.")
+        sleep(1)
+        print("Processando..")
+        sleep(1)
+        print("Processando...")
+        sleep(1)
+        print(f"{'='*50}\nTudo Certo")

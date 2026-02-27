@@ -1,0 +1,12 @@
+while True:
+    MedidaEmM = float(input('Uma Distância Em Metros:'))
+    if MedidaEmM == 191918:
+        break
+    print(f"A Medida De {MedidaEmM} Corresponde a: \n"
+          f"{MedidaEmM/1000:.3f}Km\n"
+          f"{MedidaEmM/100:.3f}Hm\n"
+          f"{MedidaEmM/10:.3f}Dam\n"
+          f"{MedidaEmM*10:.0f}Dm\n"
+          f"{MedidaEmM*100:.0f}Cm\n"
+          f"{MedidaEmM*1000:.0f}Mm"
+          )

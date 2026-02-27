@@ -1,0 +1,8 @@
+while True:
+      N1 = float(input("Digite Um Número:"))
+      if N1 == 191918:
+            break
+      print(f"O Dobro De {N1} é = {N1*2} \n"
+            f"O Triplo De {N1} é = {N1*3} \n"
+            f"A Raiz Quadrada De {N1} é = {pow(N1, (1/2)):.2f} \n"#pow funciona pow(numero que recebera o expoente, numero do expoente)
+            )

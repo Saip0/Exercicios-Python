@@ -1,0 +1,5 @@
+while True:#Cotação De 3/8/2017
+    N1 = float(input("Quanto Dinheiro Você Tem Na Carteira?Em R$:"))
+    if N1 == 191918:
+        break
+    print(f"Com {N1} Você Pode Comprar {N1/3.27:.2f}")

@@ -1,0 +1,21 @@
+from random import randint
+from time import sleep
+N = randint(0,5)
+Chance = 3
+print(f"{'=-'*60}\nNúmero Entre 0 e 5\n{'=-'*60}")
+while True:
+    if Chance == 0:
+        print(f'O Número Era {N}')
+        sleep(5)
+        break 
+    AcertN = int(input("AcertN:"))
+    if AcertN == N:
+        Chance = 0
+        print("Processando...")
+        sleep(2)
+        print("Você Ganhou!")
+    else:
+        Chance -= 1
+        print("Processando...")
+        sleep(2)
+        print(f"Você Tem {Chance} Chances")

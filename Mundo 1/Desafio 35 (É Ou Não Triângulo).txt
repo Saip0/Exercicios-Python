@@ -1,0 +1,16 @@
+from time import sleep
+def Seg(Seg1,Seg2,Seg3):
+    if (Seg1+Seg2)>Seg3 and (Seg1+Seg3)>Seg2 and (Seg2+Seg3)>Seg1: return f"Os Segmentos:\n{Seg1}\n{Seg2}\n{Seg3}\nPodem Formar Um Triângulo"
+    else: return f"Os Segmentos:\n{Seg1}\n{Seg2}\n{Seg3}\nNão Podem Formar Um Triângulo"
+while True:
+    try:
+        Seg1 = float(input(f"{'='*50}\nSegmento1:"))
+        Seg2 = float(input("Segmento2:"))
+        Seg3 = float(input("Segmento3:"))
+    except ValueError:
+        print("Erro, Digite Um Número Válido")
+        continue
+    print("Processando...")
+    sleep(2)
+    if Seg1 == 191918: break
+    print(Seg(Seg1,Seg2,Seg3))

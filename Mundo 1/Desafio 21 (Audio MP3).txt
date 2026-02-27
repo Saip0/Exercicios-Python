@@ -1,0 +1,7 @@
+import pygame
+from time import sleep
+pygame.init()
+pygame.mixer.music.load('AMD VS INTEL - Copia (online-audio-converter.com).mp3')
+pygame.mixer.music.play()
+sleep(15)
+pygame.quit()

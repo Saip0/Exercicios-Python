@@ -1,0 +1,8 @@
+while True:
+    Cid = input("Veirf Caracter Santo:")
+    if Cid == 'Sair':
+        break
+    if Cid == "":
+        print("Digite Uma Palavra Válida")
+    else:
+        print(((''.join((Cid.split()[0]))).upper()) == 'SANTO')

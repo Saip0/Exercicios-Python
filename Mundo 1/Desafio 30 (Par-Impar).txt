@@ -1,0 +1,13 @@
+from time import sleep
+while True:
+    NúmeroPouI = int(input(f"{'='*50}\nDigite Um Número:"))
+    print('='*50)
+    if NúmeroPouI == 191918: break
+    if NúmeroPouI % 2 == 0:
+        print("Processando...")
+        sleep(2)
+        print(f"O Número {NúmeroPouI} é Par")
+    else:
+        print("Processando...")
+        sleep(2)
+        print(f"O Número {NúmeroPouI} é Impar")

@@ -1,0 +1,6 @@
+while True:
+    N1 = float(input("Quantos Dias Alugado?:"))
+    if N1 == 191918:
+        break
+    N2 = float(input("Quantos Km Rodados?:"))
+    print(f"O Total a Se Pagar é De R${N1*60+N2*0.15:.2f}")

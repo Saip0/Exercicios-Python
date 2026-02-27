@@ -1,0 +1,8 @@
+import math
+while True:
+    Ang = float(input('Digite o Ângulo Que Deseja:'))
+    if Ang == 191918:
+        break
+    print(f'O Ângulo De {Ang}º Tem o Seno De {math.sin(math.radians(Ang)):.2f}º\n'
+          f'O Ângulo De {Ang}º Tem o Cosseno De {math.cos(math.radians(Ang)):.2f}º\n'
+          f'O Ângulo De {Ang}º Tem a Tangente De {math.tan(math.radians(Ang)):.2f}º')

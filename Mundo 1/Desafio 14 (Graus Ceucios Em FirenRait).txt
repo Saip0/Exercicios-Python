@@ -1,0 +1,5 @@
+while True
+    N1 = float(input(Informe a Temperatura em Celsius))
+    if N1 == 191918
+        break
+    print(fA Temperatura De {N1}°C Corresponde a {N195+32}°F)

@@ -1,0 +1,8 @@
+while True:
+    SL = float(input("Salário Do Funcionário$:"))
+    if SL == 191918:
+        break
+    print(f"{"="*25}\n"
+        f"Um Funcionário Que Ganha {SL}$ Com Um Aumento de 15%\n"
+          f"Recebera {SL+(SL*15/100):.2f}$\n"
+          f"{"-"*25}")

@@ -1,0 +1,12 @@
+import random
+Alunos = []
+while True:
+    Al1 = input("Aluno1:")
+    if Al1 == "Sair":
+        break 
+    Al2 = input("Aluno2:")
+    Al3 = input("Aluno3:")
+    Al4 = input("Aluno4:")
+    Alunos = [Al1,Al2,Al3,Al4]
+    print(random.choices(Alunos))
+    

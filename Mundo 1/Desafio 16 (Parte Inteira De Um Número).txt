@@ -1,0 +1,6 @@
+import math
+while True:
+    N1 = float(input("Digite Um Número: "))
+    if N1 == 191918:
+        break
+    print(f"O Número {N1} Tem Sua Parte Inteira {math.trunc(N1)}")

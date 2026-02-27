@@ -1,0 +1,8 @@
+while True:
+    N1 = float(input("Nota1:"))
+    if N1 == 191918:
+        break
+    N2 = float(input("Nota2:"))
+    N3 = float(input("Nota3:"))
+    N4 = float(input("Nota4:"))
+    print(f"A Média Entre {N1}, {N2}, {N3} e {N4} é = {(N1+N2+N3+N4)/4:.2f}")

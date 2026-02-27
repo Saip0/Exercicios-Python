@@ -1,0 +1,6 @@
+
+while True:
+    VS = input("Qual é Seu Nome Completo?:")
+    if VS == "Sair":
+        break
+    print(f"Seu Nome Tem Silva?: {'SILVA' in VS.upper().split()}")

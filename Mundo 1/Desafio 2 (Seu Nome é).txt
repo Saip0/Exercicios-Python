@@ -1,0 +1,6 @@
+
+while True:
+    Nome = input("Digite Seu Nome:")
+    if Nome == "Sair":
+        break
+    print(f"Olá {Nome}!")

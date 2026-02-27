@@ -1,0 +1,12 @@
+while True:
+    n1 = float(input("Numero1:"))
+    if n1 == 191918:# Sair = 191918
+        break
+    n2 = float(input("Numero2:"))
+    n3 = n1 + n2
+    print(f"{n1} + {n2} = {n3}")
+
+# isnumeric = é numerico, True ou False
+# isalpha = está no alfabeto, True ou False
+# isalnum = está no alfabeto e nos números, True ou False
+# is para verificar se é isnumeric, se é numerico

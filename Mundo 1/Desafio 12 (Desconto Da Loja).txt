@@ -1,0 +1,8 @@
+while True:
+    P = float(input("Preço Do Produto:"))
+    if P == 191918:
+        break
+    print(f"{"="*25}\n"
+          f"O Preço Do Produto é De: {P}\n"
+          f"Com 5% De Desconto O Novo Preço é De:{P+(-P*0.05):.2f}\n"
+          f"{"-"*25}")

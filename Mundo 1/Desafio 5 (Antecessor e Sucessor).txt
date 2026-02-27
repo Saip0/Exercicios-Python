@@ -1,0 +1,8 @@
+while True:
+      N1 = int(input("Número:"))
+      if N1 == 191918:
+            break
+      print(f"O Sucesso De {N1} = {N1 +1}"
+            f"O Antecessor De {N1} = {N1 - 1}"
+            )
+      

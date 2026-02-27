@@ -1,0 +1,10 @@
+while True:
+    Número = int(input("Digite Um Número:"))
+    if Número == 191918:
+        break
+    print(f"{'='*50}\n"
+    f"Unidade:{Número -Número//10*10}\n"
+    f"Dezenas:{Número//10 -Número//100*10}\n"
+    f"Centenas:{Número//100-Número//1000*10}\n"
+    f"Milhar:{Número//1000}\n"
+    f"{'='*50}")

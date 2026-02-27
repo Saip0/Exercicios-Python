@@ -1,0 +1,11 @@
+while True:
+    LP = float(input("Largura Da Parede:"))
+    if LP == 191918:
+        break
+    AP = float(input("Altura Da Parede:"))
+    print(f"{"="*60}\n"
+          f"Sua Parede Tem A Dimensão De {LP}x{AP}\n"
+          f"E Sua Área É De {LP*AP}\n"
+          f"Para Pintar Essa Parede, Você Precisará De {(LP*AP)/2:.2f}L De Tinta\n"
+          f"{"-"*60}"
+          )

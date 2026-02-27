@@ -1,0 +1,34 @@
+from time import sleep
+def MaiorNúmero(Número1,Número2,Número3):
+    if Número1 >= Número2 and Número1 >= Número3:
+            print("Processando...")
+            sleep(2)
+            print(f"O Maior Valor É {Número1:.1f}")
+    elif Número2 >= Número1 and Número2 >= Número3:
+            print("Processando...")
+            sleep(2)
+            print(f"O Maior Valor É:{Número2:.1f}")
+    elif Número3 >= Número1 and Número3 >= Número2:
+            print("Processando...")
+            sleep(2)
+            print(f"O Maior Valor É:{Número3:.1f}")
+def MenorNúmero(Número1,Número2,Número3):
+    if Número1 <= Número2 and Número1 <= Número3:
+        print(f"O Menor Número É:{Número1:.1f}")
+    elif Número2 <= Número1 and Número2 <= Número3:
+        print(f"O Menor Número É:{Número2:.1f}")
+    elif Número3 <= Número1 and Número3 <= Número2:
+        print(f"O Menor Número É:{Número3:.1f}")
+while True:
+    Número1 = float(input(f"{'='*50}\nPrimeiro Valor:"))
+    if Número1 == 191918: break
+    Número2 = float(input("Segundo Valor:"))
+    Número3 = float(input("Terceiro Valor:"))
+    print('='*50)
+    MaiorNúmero(Número1,Número2,Número3)
+    MenorNúmero(Número1,Número2,Número3)
+    
+   # elif Número1 == Número2 and Número1 == Número3:
+    #        print("Processando...")
+     #       sleep(2)
+      #      print(f"O Número:{Número1:.1f}\nO Número:{Número2:.1f}\nE o Número:{Número3:.1f} \nTem O Mesmo Valor")

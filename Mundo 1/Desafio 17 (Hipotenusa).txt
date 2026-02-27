@@ -1,0 +1,7 @@
+from math import hypot
+while True:
+    N1 = float(input("Comprimento Do Cateto Oposto:"))
+    if N1 == 191918:
+        break
+    N2 = float(input("Comprimento Do Cateto Adjacente:"))
+    print(f"A Hipotenusa Vai Medir {math.hypot(N1,N2):.2f}")

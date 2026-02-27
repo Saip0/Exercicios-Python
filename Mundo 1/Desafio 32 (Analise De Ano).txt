@@ -1,0 +1,26 @@
+from time import sleep
+from datetime import date
+def CAn(An):
+    if An % 4 == 0 and An % 100 == 0 and An % 400 == 0:
+        print("Processando...")
+        sleep(2)
+        print("É Bissexto")
+    elif An % 4 == 0 and not An % 100 == 0 and not An % 400 == 0:
+        print("Processando...")
+        sleep(2)
+        print("É Bissexto")
+    elif An <= -1: print("Erro")
+    else:
+        print("Processando...")
+        sleep(2)
+        print("Não é Bissexto")
+while True:
+    An = int(input(f"{'='*50}\nAnalise Do Ano:"))
+    if An == 191918:
+        print("Finalizando Programa")
+        sleep(2)
+        break
+    if An == 0:
+        An = date.today().year
+        print(f"O Ano {date.today().year} É:")
+    CAn(An)

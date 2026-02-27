@@ -1,0 +1,19 @@
+from time import sleep
+while True:
+    DisViaj = int(input(f"{'='*50}\nDistancia Da Viajem:"))
+    if DisViaj == 191918: break
+    if DisViaj < 200 and DisViaj > 0:
+        print("Processando...")
+        sleep(2)
+        print(f"{'='*50}\nO Preço Da Viajem é De {DisViaj*0.5}")
+    elif DisViaj >= 200 and DisViaj < 10000:
+        print("Processando...")
+        sleep(2)
+        print(f"{'='*50}\nO Preço Da Viajem é De {DisViaj*0.45}")
+    else:
+        print("Processando...")
+        sleep(2)
+        print("ERRO")
+        sleep(3)
+        DisViaj = 191918
+    if DisViaj == 191918: break

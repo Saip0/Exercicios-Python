@@ -1,0 +1,9 @@
+while True :
+    Nome = input("Digite Um Nome Completo:")
+    if Nome == "Sair":
+        break
+    Cr = Nome.split()
+    print(f"O Nome {Nome} Em Maiusculo É {Nome.upper()}")
+    print(f"O Nome {Nome} Em Minusculo É {Nome.lower()}")
+    print(f"Ao Todo O Nome {Nome} Possui {len(''.join(Cr))}")
+    print(f"O Primeiro Nome Possui {len(Cr[0])} Caracteres No Pirmiero Nome")

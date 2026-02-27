@@ -1,0 +1,11 @@
+while True:
+    Algo = input("Digite Algo:")
+    if Algo == "Sair":#191918
+        break
+    print(f"{Algo} é um número inteiro = {Algo.isnumeric()}\n"
+          f"{Algo} é uma letra = {Algo.isalpha()}\n"
+          f"{Algo} é uma letra com número inteiro = {Algo.isalnum()}\n"
+          f"{Algo} é uma letra maiuscula = {Algo.isupper()}\n"
+          f"{Algo} é uma letra minuscula = {Algo.islower()}\n"
+          f"{Algo} tem apenas espaço = {Algo.isspace()}\n"
+          f"O Tipo De {Algo} é {type(Algo)}")

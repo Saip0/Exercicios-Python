@@ -1,0 +1,13 @@
+while True:
+    Número = input("Digite Um Número:")
+    if Número == "Sair":
+        break
+    if len(Número) > 4 or len(Número) <= 0:
+        print("Número Deve Ter Mais Que 0 Caracteres E Menos De 4")
+    else:
+        print(f"{'='*50}\n"
+        f"Unidade:{Número[3:4]}\n"
+        f"Dezenas:{Número[2:3]}\n"
+        f"Centenas:{Número[1:2]}\n"
+        f"Milhar:{Número[:1]}\n"
+        f"{'='*50}")
