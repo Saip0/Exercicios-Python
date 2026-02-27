@@ -1,0 +1,116 @@
+from time import sleep
+#Dict-------------------
+esp = {15 : '='*15,
+       50 : '='*50}
+
+informacoes = {}
+genero = {1 : 'Masculino',
+          2 : 'Feminino'}
+#Func-------------------
+def pedir_informacoes(quantidade,informacoes,erro):
+    i = 0
+    while i < quantidade:
+        try:
+            print(f"{'-' * 5} {i+1} PESSOA {'-' * 5}")
+            nome = input("Nome:")
+            idade = int(input("Idade:"))
+            sexo = int(input("Sexo\n"
+                         "[ 1 ] Masculino\n"
+                         "[ 2 ] Feminino\n"
+                         "Opcão:"))
+            if idade <= 0 or sexo not in [1,2]:
+                print(erro)
+                continue
+            i += 1
+            informacoes[nome] = (idade, sexo)
+        except ValueError:
+            print(erro)
+            continue
+
+    return informacoes
+
+def pross_informacoes(informacoes):
+    mulheres_menor = 0
+    nome_homen_velho = None
+    homens_idade = []
+    idades = 0
+    for dados in informacoes.values():
+        idades += dados[0]
+        if dados[1] == 1:
+            homens_idade.append(dados[0])
+        else:
+            if dados[0] < 20:
+                mulheres_menor += 1
+    if homens_idade:
+        homen_mais_velho = max(homens_idade)
+    else:
+        homen_mais_velho = None
+    if informacoes:
+        media = idades / len(informacoes)
+    else:
+        media = 0
+    for chave, dados in informacoes.items():
+        if dados[0] == homen_mais_velho:
+            nome_homen_velho = chave
+            break
+    return media, homen_mais_velho, mulheres_menor, nome_homen_velho
+#Err-----------------
+erro = f"{esp[15]}ERRO{esp[15]}"
+while True:
+    try:
+        quantidade = int(input("Quantidade:"))
+        if quantidade <= 0:
+            print(erro)
+            continue
+        pedir_informacoes(quantidade,informacoes,erro)
+        media, homen_mais_velho, mulheres_menor, nome_homen_velho = pross_informacoes(informacoes)
+    except ValueError:
+        print(erro)
+        continue
+    #Terminal----------------------------------
+    print("Processando...")
+    sleep(2)
+    print(f"A Média De Idade Do Grupo É De {(media):.2f}\n"
+          f"Ao Todo São {mulheres_menor} Mulheres Com Menos De 20 Anos")
+    if homen_mais_velho:
+        print(f"O Homen Mais Velho É {nome_homen_velho} E Tem {homen_mais_velho}\n")
+    else:
+        print("Não Possuem Homens Cadastrados")
+    #Sair-----------------
+    while True:
+        try:
+            sair = int(input(f"{esp[50]}\n"
+                             "[ 1 ] Sair Do Programa\n"
+                             "[ 2 ] Continuar\n"
+                             "[ 3 ] Pesquisar Idades e Generos Por Nomes\n"
+                             "[ 4 ] Limpar Dados De Um Nome\n"
+                             "[ 5 ] Limpar Todos Os Dados\n "
+                         "Opções:"))
+        except ValueError:
+            print(erro)
+            continue
+        if sair in [1,2]:
+            break
+        elif sair == 3:
+            pesquisar = input("Pesquisar:")
+            if pesquisar in informacoes.keys():
+                print(f"{pesquisar} Possui {informacoes[pesquisar][0]} Anos E É Do Gênero {genero[informacoes[pesquisar][1]]}")
+                continue
+            else:
+                print("O Nome Não Está Armazenado")
+        elif sair == 4:
+            pesquisar = input("Pesquisar:")
+            if pesquisar in informacoes.keys():
+                informacoes.pop(pesquisar)
+                print(f"O Nome {pesquisar} Foi Apagado")
+            else:
+                print("O Nome Não Está Armazenado")
+        elif sair == 5:
+            informacoes.clear()
+        else:
+            print(erro)
+            continue
+        if sair == 1:
+            print("Finalizando...")
+            sleep(3)
+            break

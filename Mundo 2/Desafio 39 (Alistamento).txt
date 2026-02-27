@@ -1,0 +1,45 @@
+#Variaveis Globais E Modulos
+from time import sleep
+from datetime import datetime
+AnoAtual = datetime.today().year
+#Cores---------------------------------------------------------------------
+Cores = {"Limpar":"\033[m",
+         "Azul":"\033[0;34m",
+         "Verde":"\033[0;32m",
+         "Vermelho":"\033[0;31m"}
+#Cores---------------------------------------------------------------------
+def Alistamento(Ano,AnoAtual):
+    Idade = AnoAtual - Ano
+    if Idade > 18:
+        return f"{Cores['Verde']}Você Deveria Fazer Seu Alistamento Há: {AnoAtual -(Ano+18)}\nEle Deveria Ser Em: {Ano+18}"
+    elif Idade < 18:
+        return f"{Cores['Verde']}Ainda Faltam {(Ano+18)- AnoAtual} Anos Para Seu Alistamento\nEle Sera Em: {Ano+18}"
+    else:
+        return f"{Cores['Verde']}Você Deverá Fazer Seu Alistamento Imediatamente"
+def IdentificarGenero(Genero,Ano,AnoAtual):
+    if Genero.upper() == "Masculino".upper():
+        return f"{Cores['Verde']}Você Nasceu Em {Ano} Tem {AnoAtual - Ano} Anos\n{Alistamento(Ano,AnoAtual)}"
+    elif Genero.upper() == "Feminino".upper():
+        return f"{Cores['Verde']}O Seu Alistamento Não é Obrigatório"
+    else:
+        return f"{Cores['Vermelho']}{'='*10}Erro, Digite Apenas Masculino E Feminino{'='*10}"
+while True:
+# ERROS------------------------------------------------------------------------------------------------------------------
+    try:
+        Ano = int(input(f"{Cores['Azul']}{'='*50}\n{Cores['Verde']}Digite Seu Ano De Nascimento:"))
+        if Ano == 191918:
+            print(f"{Cores['Azul']}FINALIZANDO...")
+            sleep(3)
+            break
+        Genero = input(f"{Cores['Verde']}Digite Seu Genero:")
+    except ValueError:
+        print(f"{Cores['Vermelho']}{'='*15}ERRO{'='*15}")
+    if Ano < AnoAtual -60 or Ano > AnoAtual:
+        print(f"{Cores['Vermelho']}{'='*15}ERRO{'='*15}")
+        continue
+#ERROS------------------------------------------------------------------------------------------------------------------
+    print(f"{Cores['Azul']}PROCESSANDO...")
+    sleep(2)
+#Terminal---------------------------------------------------------------------------------------------------------------
+    print(IdentificarGenero(Genero,Ano,AnoAtual))
+#Terminal--------------------------------------------------------------------------------------------------------------

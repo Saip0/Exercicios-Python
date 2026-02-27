@@ -1,0 +1,35 @@
+from time import sleep
+#Cores-------------------------------------------------------------------------------
+Cores = {'Verde':'\033[0;32m',
+         'Vermelho':'\033[0;31m',
+         'Azul':'\033[0;34m'}
+#Cores-------------------------------------------------------------------------------
+def Maior_Menor_Numero(Num1,Num2):
+    MaiorNum = max(Num1,Num2)
+
+    if Num1 == Num2:
+        return f"{Cores['Verde']}Todos Os Números São Iguais"
+    elif MaiorNum == Num1:
+        return f"{Cores['Verde']}O Maior Número É O Primeiro:{MaiorNum}\nE O Menor é:{Num2}"
+    elif MaiorNum == Num2:
+        return f"{Cores['Verde']}O Maior Número É O Segundo:{MaiorNum}\nE O Menor é:{Num1}"
+    else:
+        return f"{Cores['Vermelho']}{'='*15}ERRO{'='*15}"
+
+while True:
+#ERROS--------------------------------------------------------------------------------
+    try:
+        Num1 = int(input(f"{Cores['Azul']}{'='*50}\n"
+                         f"{Cores['Verde']}Número1:"))
+        if Num1 == 191918:
+            print(f"{Cores['Azul']}FINALIZANDO...")
+            sleep(2)
+            break
+        Num2 = int(input(f"{Cores['Verde']}Número2:"))
+    except ValueError:
+        print(f"{Cores['Vermelho']}{'=' * 15}ERRO{'=' * 15}")
+#ERROS---------------------------------------------------------------------------------
+    print(f"{Cores['Azul']}PROCESSANDO...")
+    sleep(2)
+#Terminal-----------------------------------------
+    print(Maior_Menor_Numero(Num1,Num2))

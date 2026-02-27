@@ -1,0 +1,42 @@
+from time import sleep
+#Dict_List-----------------
+Esp = {15 : '='*15,
+       50 : '='*50}
+
+#Func---------------------
+def Progressao(Primeiro_Termo,Tamanho_Progressao,Razao):
+    Reta = []
+    for i in range(Primeiro_Termo,Tamanho_Progressao+1,Razao):
+        Reta.append(i)
+    return Reta
+#ERRO--------------------
+ERRO = f"{Esp[15]}ERRO{Esp[15]}"
+while True:
+    try:
+        Primeiro_Termo = int(input(f"{Esp[50]}\n"
+                                   "Primeiro Termo(Número Int):"))
+        Razao = int(input("Razão(Número Int):"))
+        Tamanho_Progressao = int(input("Tamanho do Progressao(Número Int):"))
+    except ValueError:
+        print(ERRO)
+    if Primeiro_Termo < 0 or Razao <= 0 or Tamanho_Progressao <= 0:
+        print(ERRO)
+        continue
+    print("Processando...")
+    sleep(2)
+    #Terminal---------------
+    #Transforma a lista em string e o map percorre a lista 
+    print(f"{' ➡ '.join(map(str,Progressao(Primeiro_Termo,Tamanho_Progressao,Razao)))} ➡ FIM")
+    #Sair-------------------
+    while True:
+        Sair = input("Deseja Sair?[S/N]:").upper().strip()
+
+        if Sair in ['S','SIM','N','NAO','NÃO']:
+            break
+        else:
+            print(ERRO)
+            continue
+    if Sair in ['S','SIM']:
+        print("Finalizando...")
+        sleep(3)
+        break

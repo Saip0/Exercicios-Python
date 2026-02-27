@@ -1,0 +1,7 @@
+Numeros = 0
+Valores = []
+for i in range(0,501,3):
+    if i % 2 == 1:
+        Numeros += i
+        Valores.append(i)
+print(f"A Soma De Todos Os {len(Valores)} Valores É {Numeros}")

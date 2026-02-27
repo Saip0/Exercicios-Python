@@ -1,0 +1,68 @@
+from time import sleep
+#Dict----------------
+Esp = {15: '='*15,
+       50: '='*50}
+
+#Func----------------
+def Forma_Compra(Preco,Forma_Pagamento,Parcelas):
+    if Forma_Pagamento == 1:#A Vista
+        Preco_Final = Preco-(Preco/10)
+        return Preco_Final
+    elif Forma_Pagamento == 2: #A Vista No Cartão
+        Preco_Final = Preco-(Preco/20)
+        return Preco_Final
+    elif Forma_Pagamento == 3:#Cartão Em 2x
+        return Preco
+    elif Forma_Pagamento == 4:#Cartão 3x
+        Preco_Final = Preco+(Preco/15 * Parcelas)
+        return Preco_Final
+#Loop---------------
+
+while True:
+    Parcelas = 2 #Valor Padrão
+    #Erros--------------------
+    try:
+        Preco = float(input(f"{Esp[50]}\nPreço Das ComprasR$:"))
+        Forma_Pagamento = int(input(f"{Esp[15]}FORMAS DE PAGAMENTO{Esp[15]}\n"
+                                 f"[ 1 ] À Vista Dinheiro\n"
+                                 f"[ 2 ] À Vista Cartão\n"
+                                 f"[ 3 ] 2x No Cartão\n"
+                                 f"[ 4 ] 3x Ou Mais No Cartão\n"
+                                 f"Qual Sua Opção?:"))
+        if Forma_Pagamento == 4:
+            Parcelas = int(input("Quantas Parcelas?:"))
+    except ValueError:
+        print(f"{Esp[15]}ERRO{Esp[15]}")
+        continue
+    if Forma_Pagamento not in [1,2,3,4] or Preco < 0:
+        print(f"{Esp[15]}ERRO{Esp[15]}")
+        continue
+
+    #Terminal---------------
+    if Forma_Pagamento == 4 and 10 >= Parcelas >= 3:
+        print(f"Sua Compra Será Parcelada Em: {Parcelas}x De {Forma_Compra(Preco,Forma_Pagamento,Parcelas)/Parcelas:.2f} Com Juros\n"
+              f"Sua Compra De {Preco} Vai Custar: {Forma_Compra(Preco,Forma_Pagamento,Parcelas):.2f} No Final")
+    elif 3 != Forma_Pagamento != 4:
+        print(f"Sua Compra De: {Preco}\n"
+             f"Vai Custar: {Forma_Compra(Preco, Forma_Pagamento,Parcelas):.2f}")
+    elif Forma_Pagamento == 3:
+        print(f"Sua Compra De: {Preco}\n"
+              f"Vai Custar: {Forma_Compra(Preco, Forma_Pagamento, Parcelas)/2:.2f}")
+    else:
+        print(f"{Esp[15]}ERRO{Esp[15]}")
+
+    #Sair Do Programa---------------------
+    while True:
+
+        Sair = input("Deseja Sair?\n"
+                "[S/N]:").upper().strip()
+
+        if Sair in ['N','NÃO','NAO','NA','NO','S', 'SIM', 'SI']:
+            break
+        else:
+            print(f"{Esp[15]}ERRO{Esp[15]}")
+            continue
+    if Sair in ['S', 'SIM', 'SI']:
+        print("Finalizando...")
+        sleep(3)
+        break

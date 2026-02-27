@@ -1,0 +1,66 @@
+from time import sleep
+#Dict_List---------------
+Cores = {'Vermelho' : '\033[0;31m',
+         'Amarelo' : '\033[1;33m' }
+Esp = {15 : '='*15,
+       50 : '='*50}
+
+#Func-------------------
+def Verifirc_Numero_Primo(NumeroPrimo):
+    Numeros = []
+    ContadorPrimos = 0
+    if NumeroPrimo < 500:
+        for i in range(1, NumeroPrimo + 1):
+            if NumeroPrimo % i == 0:
+                PrimtStr = str(i)
+                Numeros.append(f"{Cores['Amarelo']}{PrimtStr}")
+                ContadorPrimos += 1
+            else:
+                NPrimStr = str(i)
+                Numeros.append(f"{Cores['Vermelho']}{NPrimStr}")
+        return  Numeros, ContadorPrimos
+    else:
+        for i in range(1, NumeroPrimo + 1):
+            if NumeroPrimo % i == 0:
+                PrimtStr = str(i)
+                Numeros.append(f"{Cores['Amarelo']}{PrimtStr}")
+                ContadorPrimos += 1
+    return Numeros, ContadorPrimos
+
+def Contador(ContadorPrimo,NumeroPrimo):
+    if ContadorPrimo == 2:
+        return (f"O Número {NumeroPrimo} Foi Divisivel {ContadorPrimo} Vezes\n"
+                f"E Por Isso Ele É Primo")
+    else:
+        return (f"O Número {NumeroPrimo} Foi Divisivel {ContadorPrimo} Vezes\n"
+                "E Por Isso Ele NÃO É PRIMO")
+    #ERROS----------------------------------------
+ERRO = f"\033[m{Esp[15]}ERRO{Esp[15]}"
+while True:
+    try:
+        NumeroPrimo = int(input(f"{Esp[50]}\nDigite Um Número Primo:"))
+    except ValueError:
+        print(ERRO)
+        continue
+    if NumeroPrimo <= 0:
+        print(ERRO)
+        continue
+    #Terminal------------
+    print("Processando...")
+    sleep(2)
+    Lista, ContadorPrimo = Verifirc_Numero_Primo(NumeroPrimo) #Separa Os Valores Retornados Da Função
+    print(f"{Contador(ContadorPrimo,NumeroPrimo)}\n"
+          f"{' '.join(Lista)}")
+
+    #Sair-------------------------
+    while True:
+        Sair = input(f"\033[m{Esp[50]}\nDeseja sair?[S/N]").upper().strip()
+        if Sair in ['S','SIM','N','NÃO','NAO']:
+            break
+        else:
+            print(ERRO)
+            continue
+    if Sair in ['S','SIM']:
+        print("Finalizando...")
+        sleep(3)
+        break

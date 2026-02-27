@@ -1,0 +1,40 @@
+from time import sleep
+#Cores-----------------------------------------------------------------------------------------------------
+Cores = {'Verde':'\033[0;32m',
+         'Azul': '\033[0;34m',
+         'Vermelho': '\033[0;31m',
+         'Amarelo': '\033[0;33m'}
+#Cores-----------------------------------------------------------------------------------------------------
+def Aprovação(Media):
+    if Media >= 7:
+        return f"{Cores['Verde']}Aprovado"
+    elif Media >= 5:
+        return f"{Cores['Amarelo']}Em Recuperação"
+    elif Media >= 0:
+        return f"{Cores['Vermelho']}Reprovado"
+    else:
+        return f"{Cores['Vermelho']}{'='*15}ERRO{'='*15}"
+
+while True:
+#ERROS------------------------------------------------------------------------------------------------------
+    try:
+        Nota1 = float(input(f"{Cores['Azul']}{'='*50}\n"
+                            f"{Cores['Verde']}Nota1:"))
+        if Nota1 == 191918:
+            print(f"{Cores['Azul']}FINALIZANDO...")
+            sleep(2)
+            break
+        Nota2 = float(input(f"{Cores['Verde']}Nota2:"))
+    except ValueError:
+        print(f"{Cores['Vermelho']}{'='*15}ERRO{'='*15}")
+
+    if Nota1 > 10 or Nota1 < 0 or Nota2 > 10 or Nota2 < 0:
+        print(f"{Cores['Vermelho']}{'='*15}ERRO{'='*15}")
+        continue
+#ERROS------------------------------------------------------------------------------------------------------
+    print(f"{Cores['Azul']}PROCESSANDO...")
+    sleep(2)
+#Terminal---------------------------------------------------------------------------------------------------
+    Media = (Nota1 + Nota2)/2
+    print(f"{Cores['Verde']}Tirando {Nota1} e {Nota2}, a Média Do Aluno é {Media}\n"
+          f"O Aluno Está: {Aprovação(Nota1, Nota2, Media)}")

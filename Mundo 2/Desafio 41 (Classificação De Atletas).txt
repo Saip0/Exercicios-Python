@@ -1,0 +1,50 @@
+from time import sleep
+from datetime import datetime
+AnoAtual = datetime.today().year
+#Cores------------------------------------------------------------
+Cores = {'Verde':'\033[0;32m',
+         'Vermelho':'\033[0;31m',
+         'Ciano':'\033[0;36m',
+         'Roxo':'\033[0;35m',
+         'Amarelo':'\033[0;33m',
+         'Azul':'\033[1;34m',
+         'Cinza':'\033[1;37m',
+         'Negativa':'\033[7;30m',
+         'Limpar': '\033[m'}
+#Cores------------------------------------------------------------
+def Classificacao(Idade):
+
+    if Idade < 10 and Idade > 2:
+        return f"{Cores['Verde']}Mirim"
+    elif Idade < 15:
+        return f"{Cores['Amarelo']}Infantil"
+    elif Idade < 20:
+        return f"{Cores['Ciano']}Junior"
+    elif Idade < 23:
+        return f"{Cores['Roxo']}Sênior"
+    elif Idade > 23 and Idade < 50:
+        return f"{Cores['Negativa']}Master{Cores['Limpar']}"
+    else:
+        return 'ERRO'
+
+while True:
+#ERROS--------------------------------------------------------------------------------
+    try:
+        Ano = int(input(f"{Cores['Azul']}{'='*50}\n{Cores['Cinza']}Digite Seu Ano De Nascimento:"))
+        if Ano == 191918:
+            print(f"{Cores['Azul']}Finalizando...")
+            sleep(3)
+            break
+    except ValueError:
+        print(f"{Cores['Vermelho']}{'='*15}ERRO{'='*15}")
+        continue
+    Idade = AnoAtual - Ano
+    if Classificacao(Idade) == 'ERRO':
+        print(f"{Cores['Vermelho']}{'='*15}ERRO{'='*15}")
+        continue
+#ERROS--------------------------------------------------------------------------------
+    print(f"{Cores['Azul']}Processando...")
+    sleep(2)
+#Terminal-----------------------------------------------------------------------------
+    print(f"{Cores['Cinza']}O Atleta Tem {Idade}.\n"
+          f"Classificação:{Classificacao(Idade)}")

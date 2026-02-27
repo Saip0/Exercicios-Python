@@ -1,0 +1,45 @@
+from time import sleep
+#Dict_Listas---------------
+Esp = {50: '='*50,
+       15: '='*15}
+TabuadaNumeros = []
+#Func--------------
+def Tabuada(Numero,TabuadaNumeros):
+    for i in range(1,11):
+        TabuadaNumeros.append(f"{Numero} X {i} = {Numero*i}")
+    return '\n'.join(TabuadaNumeros)
+
+ERRO = f"{Esp[15]}ERRO{Esp[15]}"
+
+while True:
+    #ERROS-------
+    try:
+        Numero = (float(input(f"{Esp[50]}\n"
+                              f"Digite Um Número:")))
+    except ValueError:
+        print(ERRO)
+        continue
+    if Numero <= 0:
+        print(ERRO)
+        continue
+    #Terminal---------
+    print("Processando...")
+    sleep(2)
+    print(f"{Esp[50]}\n"
+          f"{Tabuada(Numero,TabuadaNumeros)}\n"
+          f"{Esp[50]}")
+    #Sair--------------
+    while True:
+        Sair = input("Deseja Sair?\n"
+                     "[S/N]:").upper().strip()
+
+        if Sair in ['S','N','NAO','SIM','NÃO']:
+            TabuadaNumeros.clear()
+            break
+        else:
+            print(ERRO)
+            continue
+    if Sair in ['S','SIM']:
+        print("Finalizando...")
+        sleep(3)
+        break

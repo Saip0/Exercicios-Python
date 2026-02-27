@@ -1,0 +1,41 @@
+from time import sleep
+#Dict--------------------
+Esp = {15 : '='*15,
+       50 : '='*50}
+#Func--------------------
+def Inversao_De_Palavras(Palavra):
+    PalavraJuncao = ''.join(Palavra.upper().split())
+    Inverso = [PalavraJuncao[::-1]]
+
+    return ''.join(Inverso), PalavraJuncao
+
+def Verific_Palidromo(PalavraJuncao,Inverso):
+    if PalavraJuncao == Inverso:
+        return True
+    else:
+        return False
+
+while True:
+    Palavra = input(f"{Esp[50]}\nDigite Uma Palavra:")
+    #Terminal----------------
+    Inverso, PalavraJuncao = Inversao_De_Palavras(Palavra)
+
+    print("Processando...")
+    sleep(2)
+    print(f"O Inverso De {PalavraJuncao} É {Inverso}")
+    if Verific_Palidromo(PalavraJuncao,Inverso):
+        print("A Palavra É Um Palidromo")
+    else:
+        print("A Palavra Não É Um Palidromo")
+    #Sair-----------------
+    while True:
+        Sair = input("Deseja Sair?[S/N]:").upper().strip()
+        if Sair in ['S','SIM','N','NAO','NÃO']:
+            break
+        else:
+            print(f"{Esp[15]}ERRO{Esp[15]}")
+            continue
+    if Sair in ['S','SIM']:
+        print("Finalizando...")
+        sleep(3)
+        break

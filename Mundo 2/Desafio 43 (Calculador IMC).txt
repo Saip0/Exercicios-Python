@@ -1,0 +1,69 @@
+from time import sleep
+#Dicionários--------------------
+Cores = {
+         'Azul':'\033[1;34m',
+         'Vermelho':'\033[1;31m',
+         'Cinza':'\033[1;37m'
+    }
+Espacos = {
+    'Introduc': '='*50,
+    'ERRO': '='*15
+}
+#Dicionários--------------------
+def PesIMC(IMC):
+    if 0 < IMC <= 18.5:
+        return f"\033[1;33mAbaixo Do Peso"#Amarelo
+    elif IMC <= 25:
+        return f"\033[1;32mPeso Ideal"#Verde
+    elif IMC <= 30:
+        return f"\033[1;35mSobrepeso"#Roxo
+    elif IMC <= 40:
+        return f"\033[4;35mObesidade"#Roxo Traçado
+    elif IMC <= 500:
+        return "\033[7mOBESIDADE MÓRBIDA\033[m"#Cor Invertida
+
+while True:
+    #ERROS------------------------------
+    try:
+        Altura = float(input(f"{Cores['Azul']}{Espacos['Introduc']}\n"
+                             f"{Cores['Cinza']}Digite Sua Altura:"))
+        Peso = float(input(f"{Cores['Cinza']}Digite Seu Peso:"))
+    except ValueError:
+        print(f"{Cores['Vermelho']}{Espacos['ERRO']}ERRO{Espacos['ERRO']}")
+        continue
+    if Altura >= 2.5 or Peso >= 500 or Altura <= 0 or Peso <= 0:
+        print(f"{Cores['Vermelho']}{Espacos['ERRO']}ERRO, Números Inválidos{Espacos['ERRO']}")
+        continue
+        #ERROS---------------------------------
+        #Terminal-------------------------------
+    print(f"{Cores['Azul']}PROCESSANDO...")
+    sleep(2)
+    IMC = Peso / (pow(Altura,2))
+    print(f"{Cores['Cinza']}Seu IMC é:{IMC:.2f}\n"
+          f"Sua Classificação De Peso é:{PesIMC(IMC)}")
+    #Terminal------------------------------------------
+    #Sair Programa-------------------------------------
+    while True:
+        try:
+            Sair = input(f"{Cores['Cinza']}Você Deseja Sair?\n"
+                        f"[S/N]:").upper().strip()
+        except ValueError:
+            print(f"{Cores['Vermelho']}{Espacos['ERRO']}ERRO{Espacos['ERRO']}")
+            continue
+        
+        if Sair in ['S','SAIR','SIM','SI']:
+            print(f"{Cores['Azul']}FINALIZANDO EM...")
+            sleep(1)
+            print(f"{Cores['Azul']}3")
+            sleep(1)
+            print(f"{Cores['Azul']}2")
+            sleep(1)
+            print(f"{Cores['Azul']}1")
+            sleep(1)
+            break
+        elif Sair in ['N','NAO','NÃO','NA','NO']:
+            break
+        else:
+            print(f"{Cores['Vermelho']}{Espacos['ERRO']}Digite Apenas [S/N]{Espacos['ERRO']}")
+            continue
+    if Sair == 'S' or Sair == 'SAIR': break

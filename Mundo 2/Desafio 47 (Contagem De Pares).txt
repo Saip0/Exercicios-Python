@@ -1,0 +1,10 @@
+#Script Do Curso-----------------
+for i in range(2,51,2):
+    print(i,end=' ')
+print('Fim')
+
+#Meu Script-----------------------
+#Sequencia = []
+#for i in range(2,51,2):
+#    Sequencia.append(i)
+#print(Sequencia)

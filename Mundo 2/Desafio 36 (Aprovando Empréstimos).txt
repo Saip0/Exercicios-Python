@@ -1,0 +1,38 @@
+from time import sleep
+#Cores No Terminal----------------------------------------------
+Cores = {'Limpar':'0\033[m',
+         'Azul':'\033[0;34m',
+         'Verde':'\033[0;32m',
+         'Vermelho':'\033[0;31m'}
+#Cores No Terminal----------------------------------------------
+def Emprestimo(ValorDaCasa,Salario,Anos):
+
+    if ValorDaCasa/(Anos*12) > 30*(Salario/100):
+        return f'{Cores["Vermelho"]}Emprestimo NEGADO'
+    else:
+        return f'{Cores["Verde"]}Emprestimo APROVADO'
+
+while True:
+    #Erros------------------------------------------------------------------------
+    try:
+        ValorDaCasa = float(input(f'{Cores["Azul"]}{"="*50}\n'
+                                  f'{Cores["Verde"]}Valor Da Casa R$:'))
+
+        if ValorDaCasa == 191918: break
+
+        Salario = float(input(f'{Cores["Verde"]}Salario R$:'))
+        Anos = int(input(f'{Cores['Verde']}Anos De Financiamento:'))
+    except ValueError:
+        print(f'{Cores['Vermelho']}{"="*15}ERRO{"="*15}')
+        continue
+
+    if Salario <= 1600 or ValorDaCasa <= 7000 or Anos < 0 or Anos >50:
+        print(f'{Cores["Vermelho"]}{"=" * 15}ERRO{"=" * 15}')
+        continue
+    # Erros------------------------------------------------------------------------
+
+    print(f'{Cores["Vermelho"]}PROCESSANDO...')
+    sleep(2)
+
+    print(f'{Cores['Azul']}Para Pagar Uma Casa De {ValorDaCasa} em {Anos} a Prestação Será De R${(ValorDaCasa/(Anos*12)):.2f}\n'
+          f'{Emprestimo(ValorDaCasa,Salario,Anos)}!')

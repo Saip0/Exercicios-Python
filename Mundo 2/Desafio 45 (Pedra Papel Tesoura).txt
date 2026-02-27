@@ -1,0 +1,102 @@
+from time import sleep
+from random import randint
+JogadorPontos = 0
+ComputadorPontos = 0
+#Dict------------
+Esp = {50 : '='*50,
+       15 : '='*15}
+
+ConverterJogadas = { 1: 'Pedra',
+              2: 'Papel',
+              3: 'Tesoura'}
+
+ConverterPlacar = {1: 'Vitória Computador',
+                   2: 'Vitória Jogador',
+                   3: 'Empate'}
+#Func------------
+def PedraPapelTesoura(JogadaInput,CompJogada):
+    if (JogadaInput == 1 and CompJogada == 2) or (JogadaInput == 2 and CompJogada == 3):#Vitória Computador
+        return 1
+    elif JogadaInput == 3 and CompJogada == 1:#Vitória Computador
+        return 1
+    elif (JogadaInput == 2 and CompJogada == 1) or (JogadaInput == 3 and CompJogada == 2):#Vitória Jogador
+        return 2
+    elif JogadaInput == 1 and CompJogada == 3:#Vitória Jogador
+        return 2
+    else:
+        return 3
+
+#Loop Principal------------
+while True:
+    CompJogada = randint(1, 3)
+    #ERROS-----------------
+    ERRO = (f"{Esp[15]}ERRO{Esp[15]}")
+    try:
+        JogadaInput = int(input(f"{Esp[50]}\n"
+                                f"Suas Opções São:\n"
+                                f"[ 1 ] Pedra\n"
+                                f"[ 2 ] Papel\n"
+                                f"[ 3 ] Tesoura\n"
+                                f"Opção:"))
+    except ValueError:
+        print(ERRO)
+        continue
+    if JogadaInput not in [1,2,3]:
+        print(ERRO)
+        continue
+    #Terminal-----------------
+    JogoCalculo = PedraPapelTesoura(JogadaInput, CompJogada)#Variavel Da Função
+    print("Processando...")
+    sleep(2)
+    print(f"{Esp[15]}\n"
+          f"O Jogador Jogou {ConverterJogadas[JogadaInput]}\n"
+          f"E O Computador Jogou {ConverterJogadas[CompJogada]}\n"
+          f"{ConverterPlacar[JogoCalculo]}\n"
+          f"{Esp[15]}")
+    #Soma De Pontos----------------------------
+    if JogoCalculo == 2:
+        JogadorPontos += 1
+    elif JogoCalculo == 1:
+        ComputadorPontos += 1
+    #Sair---------------------
+    while True:
+        Sair = input(f"Deseja Sair?\n"
+                     f"[S = Sair]\n"
+                     f"[N = Continuar]\n"
+                     f"[V = Ver Placar]\n"
+                     f"Opção:").upper().strip()
+
+        if Sair in ['N','NAO','NÃO','S','SIM','V','VER']:
+            break
+        else:
+            print(ERRO)
+            continue
+    if Sair in ['S','SIM']:
+        print("Finalizando...")
+        sleep(3)
+        break
+    #Placar----------------
+    if Sair in ['V','VER']:
+        while True:
+            Placar = input(f"{Esp[50]}\nPlacar:\n"
+                     "[T = Todos]\n"
+                      "[J = Jogador]\n"
+                     "[C = Computador]\n"
+                     "[N = Não]"
+                        "Opção:").upper().strip()
+
+            if Placar in ['TODOS','T']:
+                print(f"Placar De Todos Os Jogadores:\n"
+                  f"Jogador:{JogadorPontos}\n"
+                      f"Computador:{ComputadorPontos}")
+            elif Placar in ['JOGADOR','J']:
+                print(f"Placar Do Jogador:\n"
+                  f"{JogadorPontos}")
+            elif Placar in ['COMPUTADOR','C']:
+                print(f"Placar Do Computador:\n"
+                  f"{ComputadorPontos}")
+            elif Placar in ['N','NAO','NÃO']:
+                break
+            else:
+                print(ERRO)
+                continue

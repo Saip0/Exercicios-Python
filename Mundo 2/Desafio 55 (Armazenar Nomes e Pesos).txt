@@ -1,0 +1,60 @@
+from time import sleep
+#Dict----------------
+esp = {15 : '='*15,
+       50 : '='*50}
+armazenar_por_nomes = {}
+#Func----------------
+def nomes_e_pesos(armazenar_por_nomes,quantidade):
+    pesos = []
+    for i in range(1,quantidade+1):
+        nome = input(f"Nome{i}:")
+        peso = float(input(f"Peso{i}:"))
+
+        if peso <= 0.4 or peso >= 400:
+            print(ERRO)
+            continue
+
+        armazenar_por_nomes[nome] = peso
+        pesos.append(peso)
+    max_pes = max(pesos)
+    min_pes = min(pesos)
+    return armazenar_por_nomes, max_pes, min_pes
+#ERRO-------------------------
+ERRO = f"{esp[15]}ERRO{esp[15]}"
+while True:
+    try:
+        quantidade = int(input(f"{esp[50]}\nDigite Quantos Nomes Armazenar:"))
+        armazenar_por_nomes, max_pes, min_pes = nomes_e_pesos(armazenar_por_nomes,quantidade)
+        print("Processando...")
+        sleep(2)
+        print(f"O Maior Peso Foi De {max_pes}KG\n"
+              f"O Menor Peso Foi De {min_pes}KG")
+    except ValueError:
+        print(ERRO)
+        continue
+    #Sair----------------
+    while True:
+        opcoes = input(f"{esp[50]}\n[ 1 ] Continuar\n"
+                "[ 2 ] Sair\n"
+                "[ 3 ] Ver Pesos Por Nomes\n"
+                "[ 4 ] Limpar Dados\n"
+                  "Opção:")
+        if opcoes in ['1','2','3','4']:
+            if opcoes in ['1','2']:
+                break
+            elif opcoes == '3':
+                procurar_nome = input("Procurar Nome:")
+                if procurar_nome not in armazenar_por_nomes:
+                    print("O Nome Não Está Armazenado")
+                else:
+                    print(f"{procurar_nome} Possui {armazenar_por_nomes[procurar_nome]}KG")
+            elif opcoes == '4':
+                armazenar_por_nomes.clear()
+                print("Dados Limpos")
+        else:
+            print(ERRO)
+            continue
+    if opcoes == '2':
+        print("Finalizando...")
+        sleep(3)
+        break

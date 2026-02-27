@@ -1,0 +1,48 @@
+from time import sleep
+#Cores--------------------------------------------
+Cores = {'Verde': '\033[0;32m',
+         'Vermelho': '\033[0;31m',
+         'Amarelo': '\033[0;33m',
+         'Azul': '\033[1;34m',
+         'Ciano': '\033[0;36m',
+         'Cinza': '\033[0;37m',}
+#Cores--------------------------------------------
+def E_Triangulo(Num1,Num2,Num3):
+    if (Num1+Num2) > Num3 and (Num1+Num3) > Num2 and (Num2+Num3) > Num1:
+        return f"{Cores['Verde']}Formam Um Triângulo"
+    else:
+        return f"{Cores['Ciano']}Não Formam Um Triângulo"
+
+def Tipo_Triangulo(Num1,Num2,Num3,E_Triangulo):
+    if E_Triangulo == f"{Cores['Verde']}Formam Um Triângulo":
+        if Num1 == Num2 and Num1 == Num3:
+            return f"{Cores['Ciano']}Equilátero"
+        elif Num1 != Num2 and Num1 != Num3 and Num2 != Num3:
+            return f"{Cores['Verde']}Escaleno"
+        else:
+            return f"{Cores['Amarelo']}Isóceles"
+    else:
+        return "\033[7mSem Classificação\033[m"
+    
+while True:
+    #ERRO------------------------------------------------------------------
+    try:
+        Num1 = float(input(f"{Cores['Azul']}{'='*50}\n{Cores['Verde']}Segmento 1:"))
+        if Num1 == 191918:
+            print(f"{Cores['Azul']}FINALIZANDO...")
+            sleep(3)
+            break
+        Num2 = float(input(f"{Cores['Verde']}Segmento 2:"))
+        Num3 = float(input(f"{Cores['Verde']}Segmento 3:"))
+    except ValueError:
+        print(f"{Cores['Vermelho']}{'='*15}ERRO{'='*15}")
+        continue
+    if Num1 <= 0 or Num2 <= 0 or Num3 <= 0:
+        print(f"{Cores['Vermelho']}{'='*15}ERRO{'='*15}")
+        continue
+    #ERRO------------------------------------------------------------------
+    print(f"{Cores['Azul']}PROCESSANDO...")
+    sleep(2)
+    #Terminal--------------------------------------------------------------
+    print(f"{Cores['Cinza']}Os Segmentos: {E_Triangulo(Num1,Num2,Num3)}\n"
+          f"O Triangulo é: {Tipo_Triangulo(Num1,Num2,Num3,E_Triangulo(Num1,Num2,Num3))}")

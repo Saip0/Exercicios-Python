@@ -1,0 +1,58 @@
+from time import sleep
+from datetime import date
+#Dict-----------------
+Esp = {15 : '='*15,
+       50 : '='*50}
+Pessoas = {}
+#Func-----------------
+def Maior_Idade(Pessoas,Quantos_Nomes):
+    Cont_Maior = 0
+    Cont_Menor = 0
+    for i in range(0,Quantos_Nomes):
+        Nome = input(f"Nome{i+1}:")
+        Ano_Nascimetno = int(input(f"Ano De Nascimento{i+1}:"))
+
+        Idade = date.today().year - Ano_Nascimetno
+        if  Idade >= 18:
+            Cont_Maior += 1
+        else:
+            Cont_Menor += 1
+        Pessoas[Nome] = Idade
+    return Pessoas, Cont_Maior, Cont_Menor
+
+#ERRO/Terminal--------------
+ERRO = f"{Esp[15]}ERRO{Esp[15]}"
+while True:
+    try:
+        Quantos_Nomes = int(input(f"{Esp[50]}\nQuantos Nomes Armazenar?:"))
+
+        Pessoas, Cont_Maior, Cont_Menor = Maior_Idade(Pessoas, Quantos_Nomes)
+
+        print(f"Ao Todo Foram {Cont_Maior} Pessoas Maiores De Idade\n"
+              f"E {Cont_Menor} Pessoas Menores De Idade")
+
+    except ValueError:
+        print(ERRO)
+        continue
+    #Sair/VerNomes-------------
+    while True:
+        Opcoes = input(f"{Esp[50]}\nEscolha Uma Das Opções\n"
+                           f"[ 1 ] Continuar Com O Programa\n"
+                           f"[ 2 ] Sair Do Programa\n"
+                           f"[ 3 ] Procurar Idade Por Nomes\n"
+                           f"Opção:")
+        if Opcoes in ["1","2"]:
+            break
+        elif Opcoes == "3":
+            Procurar = input("Nome Da Pessoa:")
+            if Procurar not in Pessoas:
+                print("Essa Pessoa Não Está Registrada")
+            else:
+                print(f"{Procurar} Tem {Pessoas[Procurar]} Anos")
+        else:
+            print(ERRO)
+            continue
+    if Opcoes == "2":
+        print("Finalizando...")
+        sleep(3)
+        break
