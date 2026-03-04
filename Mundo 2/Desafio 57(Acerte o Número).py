@@ -4,7 +4,7 @@ esp = {15 :'='*15,
        50 :'='*50}
 aleat_num = randint(0, 10)
 cont = 0
-def numero_aleatorio(cont,aleat_num ,numero):
+def numero_aleatorio(aleat_num ,numero):
     if numero < aleat_num:
         return 1
     elif numero > aleat_num:
@@ -45,4 +45,5 @@ while True:
         if sair == 'S':
             break
         aleat_num = randint(0, 10)
+
         cont = 0
