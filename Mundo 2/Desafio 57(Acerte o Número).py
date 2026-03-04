@@ -33,6 +33,7 @@ while True:
             print(f"O Número é menor que {numero}")
             cont += 1
     else:
+           cont += 1
         print(f"Fim De Jogo, O Número Era {numero}\n"
               f"Você Precisou De {cont} Tentivas")
 
@@ -47,4 +48,5 @@ while True:
         aleat_num = randint(0, 10)
 
         cont = 0
+
 
