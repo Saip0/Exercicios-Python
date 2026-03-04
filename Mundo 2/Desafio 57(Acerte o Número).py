@@ -24,7 +24,7 @@ while True:
     else:
         print(err)
         continue
-    resultado = numero_aleatorio(cont,aleat_num,numero)
+    resultado = numero_aleatorio(aleat_num,numero)
     if resultado in [1,2]:
         if resultado == 1:
             print(f"O Número é maior que {numero}")
@@ -47,3 +47,4 @@ while True:
         aleat_num = randint(0, 10)
 
         cont = 0
+
